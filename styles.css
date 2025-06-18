@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s ease-in-out;
+}
+
+.message.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  transition: transform 0.3s ease;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+}
+
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.status-message {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 0.5rem;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.status-message.show {
+  opacity: 1;
+}
